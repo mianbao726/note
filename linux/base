@@ -1,0 +1,23 @@
+2015-2-16
+/usr/bin/gnome-terminal  终端快捷键
+
+添加sudo user
+    visudo
+
+关闭防火墙
+sudo systemctl stop firewalld.service
+
+离线安装 chrome
+yum localinstall google-chrome-stable_current_x86_64.rpm
+
+ 添加快捷方式
+cd /usr/share/applications/
+sudo vi php-strom.desktop
+[Desktop Entry]
+Type=Application
+Name=Eclipse
+Comment= "write your comment"
+Icon=the icon path ,something like /opt/eclipse/icon.xpm
+Exec=the execution command ,something like /opt/eclipse/eclipse
+Terminal=false
+Categories=write categories like : Development;IDE;Java;
