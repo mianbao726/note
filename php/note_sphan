@@ -1,0 +1,1339 @@
+1.html运行原理
+ 两种方式  本地
+          远程
+    html htm区别 兼容dos系统  优先html
+
+2.版权符号 &copy; 
+
+3.发送邮件 <a href = "mailto:zhuwj726@gmail.com">send email</a>
+
+4.默认的端口是 80  www.google.com.tw  = www.google.com.tw:80
+
+5.img <img src = "" width = "" heigth = "" alt = ""/>
+
+6.table  <table cellsapcing="10px" cellpadding = "" border ="" align = ""  width = "" bgcolor ="yello" heigth = "列高 "/>
+
+7.无序列表  ul   li
+
+8.有序列表   ol  li  <ol type = "i" start="2" />
+
+9.frameset 框架集   
+
+	<!--页面不能有body>
+	<frameset cols = "500px,*"   rows="20%,*">
+	<frame src ="some.html" frameborder = "0" noresize name="f1"/>
+	<frame src ="other.html" frameborder = "0" name = "f2"/>
+	</frameset>
+
+        some.html
+	<body>
+		<a href = "some_1.html" target ="f2" > link </a>
+	</body>
+         <a target>     
+          _self    替换当前（default）
+          _blank   打开新页面
+          _parent  父窗口
+          _top     整个窗口
+          直接写frame名字
+
+
+
+10.iframe 浮动窗口
+	<html>
+		<body>
+			<a href = "www.taobao.com"  target = "if1">taobao</a>
+			<iframe src = "www.google.com.tw" width = "" heigth = "" name = "if1"/>
+			<iframe src = "www.google.com.hk" width = "" heigth = ""/>
+		</body>
+	</html>
+
+11.form 表单
+    常用控件
+    <form action = "" method = "">
+        username : <input type = "text" />
+        password : <input type = "password" />
+    </form>
+ 
+    <select name="select" size ="显示的个数" multiple >
+    </select>
+    multiple 多选
+
+    <textarea cols="多少列" rows ="多少行"></textarea>
+
+    <input type="file" />
+
+    <embed src = "file.avi" /> 视频
+
+    <bgsound src = ""/>
+
+    <img src = "pic.gif" dynsrc = "video.avi" loop ="4" start ="mouseover" />
+
+    <html>
+	<head>
+		<meta http-equiv="content-type" content ="text/html;charset=utf-8"/>
+		<!-- ansi 美国国家标准协会制定的编码   根据操作系统自动变化-->
+	</head>
+    </html>
+
+	<img src="pic.gif" usemap = "#Face" /> 区域事件
+	<map name = "Face">
+		<area shape = "rect" href = "#"  onclick = "alert('bingo !!! ')" coords = "140,20,280,40"/>
+	</map>
+
+
+<marqueen dorection = "right">可以移动</marqueen>
+
+
+*线包起来
+<fieldsest style = "width :300px">
+<legend>标题</legend>
+<form>
+<input type = "raido" name = "apple" > apple
+<input type = "raido" name = "apple" > pear
+</from>
+</fieldset>
+
+
+
+12. div +css
+div  block-level
+css sascading style sheets 
+
+13.css
+
+<link rel = "stylesheet" type = "text/css" href = "css.css"/>
+基本语法   选择器 {属性:属性值;属性:属性值;}
+/*类选择器*/
+.s1{
+}
+
+a:link img{
+}
+a:hover img{
+}
+
+
+css常用选择器
+类选择器           .class{}
+id选择器           #id{}
+html元素选择器      a{}  body{}
+通配符选择器        *{}
+
+margin
+***最佳实践
+在最开始的页面
+*{padding:0;margin:0px;}
+
+一个元素可以有多个class  如果两个css冲突 以css文件后面的为主
+ 
+
+css简化
+
+
+s1{size:1;color:red}
+s2{size:2;color:red}
+
+=>
+
+s1{size:1;}
+s2{size:2;}
+s1,s2{color:red}
+
+
+display:block/inline   展现方式：块元素/行列元素
+
+css文件之间导入 @import url(dir/cssfile.css)
+
+标准流  /  非标准流
+流:html元素在网页中显得的顺序
+标准流:写在html文件前的在前面显示，写在后面的在后面显示
+非标准流:  即不是标准流
+
+css盒子模型
+
+margin
+  border
+    padding
+      content 
+
+
+浮动
+folat:left  right 
+
+TODO清除浮动
+
+
+定位
+1.static    标准流
+2.relative  相对与自己的位置变化  ,还占据之前的位置
+	#ss{
+	position:relative;
+	left:40px;
+	top:300px;
+	}
+3.absolute   相对所在的非static的定位的元素的位置变化  ,不占据之前的位置
+	#ss{
+	position:absolute;
+	left:40px;
+	top:300px;
+	}
+4.fixed
+	绝对位置  不受任何影响
+
+
+z-index  值越小越在下面
+ claxx{
+	z-index:1
+}
+
+
+引入swf flash文件
+<object>
+
+
+link hover
+background-position:100% -50px;
+
+
+
+浏览器兼容问题
+
+
+
+滤镜选项  filter????
+
+标准流
+盒子模型
+浮动
+定位
+
+
+
+
+************************************************************
+1.php
+php => personal homepage 
+
+2.b/s c/s
+b browser s server c client
+
+3.安装 apache2 
+
+download 
+httpd-2.4.9
+apr-1.5.1.tar.gz
+apr-util-1.5.3.tar.gz
+pcre-8.35.zip
+wget http://archive.apache.org/dist/apr/apr-1.4.5.tar.gz  
+wget http://archive.apache.org/dist/apr/apr-util-1.3.12.tar.gz  
+wget http://jaist.dl.sourceforge.net/project/pcre/pcre/8.10/pcre-8.10.zip   
+yum remove apr-util-devel apr apr-util-mysql apr-docs apr-devel apr-util apr-util-docs 
+[root@xt test]# tar -zxf apr-1.4.5.tar.gz  
+[root@xt test]# cd  apr-1.4.5  
+[root@xt apr-1.4.5]# ./configure --prefix=/usr/local/apr  
+[root@xt apr-1.4.5]# make && make install  
+[root@xt test]# tar -zxf apr-util-1.3.12.tar.gz  
+[root@xt test]# cd apr-util-1.3.12  
+[root@xt apr-util-1.3.12]# ./configure --prefix=/usr/local/apr-util -with- apr=/usr/local/apr/bin/apr-1-config  
+[root@xt apr-util-1.3.12]# make && make install 
+[root@xt test]#unzip -o pcre-8.10.zip  
+[root@xt test]#cd pcre-8.10  
+[root@xt pcre-8.10]#./configure --prefix=/usr/local/pcre  
+[root@xt pcre-8.10]#make && make install 
+./configure  --prefix=/usr/local/apache2 -with-apr=/usr/local/apr  -with-apr-util=/usr/local/apr-util  -with-pcre=/usr/local/pcre
+
+star apache2 http
+sudo /usr/local/apache2/bin/apachectl start
+
+
+
+端口 port 1-65535
+
+apache 修改默认端口
+修改 /usr/local/apache2/conf/httpd.conf  listen 80
+apazhe监听多个端口
+修改 /usr/local/apache2/conf/httpd.conf  listen 80 listen 81
+
+apache目录结构
+bin        命令
+build      
+cgi-bin    linux命令
+conf       配置文件
+error      错误记录
+htdocs     存放站点的文件夹
+icons      图标
+include    
+logs       日志
+man
+manual     用户手册
+modules    apache模块
+
+
+apache 虚拟路径
+修改 /usr/local/apache2/conf/httpd.conf
+
+
+<Directory "/home/zhuwj/php/workspace">
+
+    Options Indexes FollowSymLinks
+    Order allow,deny
+    Allow from all
+
+</Directory>
+
+
+注释掉  DocumentRoot "/usr/local/apache2/htdocs"
+
+
+apache访问权限
+<Directory "/home/zhuwj/php/workspace">
+
+    Options Indexes FollowSymLinks
+    Order allow,deny
+    Allow from all
+
+</Directory>
+
+Order allow ,deny
+deny from 218.2
+allow from 218.2.2.1  所有 218.2开头的ip都不能访问
+
+Order deny , allow
+deny from 218.2
+allow from 218.2.2.1  除了 218.2.2.1 可以访问，所有 218.2开头的ip都不能访问
+   
+
+配置虚拟主机
+httpd.conf
+
+# Virtual hosts
+Include conf/extra/httpd-vhosts.conf
+
+<VirtualHost 127.0.0.1:80>
+    DocumentRoot "/home/zhuwj/php/workspace/my"
+    DirectoryIndex index.html 
+    <Directory>
+    options FollowSymLinks
+    AllowOverrid None
+    order allow,deny
+    Allow from all
+    </Directory>
+</VirtualHost>
+
+
+
+访问网址 www.google.com  一般过程
+
+host  yes  -> http://ip:port
+      no   -> dns  no  -> 404
+                   yes -> server return www.google.com
+                    
+
+
+安装mysql
+
+rpm -ivh mysql-server.rpm
+rpm -ivh mysql-client.rpm
+sudo /etc/init.d/mysql start
+mysql -uroot -pxxxx
+SET PASSWORD = PASSWORD('sunny');
+
+
+没有/usr/bin/mysql_config 是因为没有安装mysql-developer
+
+
+编译安装php
+./configure  --prefix=/usr/local/php -with-apxs2=/usr/local/apache2/bin/apxs -with-mysqli=/usr/bin/mysql_config -with-mysql=/usr/share/mysql -with-pdo-mysql=/usr/include/mysql
+
+./configure  --prefix=/usr/local/php -with-apxs2=/usr/local/apache2/bin/apxs -with-mysqli -with-mysql -with-pdo-mysql  --with-zlib --enable-mbstring=all 
+make 
+make install
+cp php.ini-development /usr/local/lib/php.ini
+
+vi /usr/local/httpd/conf/httpd.conf
+找到 AddType 的地方添加一行
+AddType application/x-httpd-php .php
+找到 DirectoryIndex index.html
+在index.html 添加一个index.php或者default.php
+
+
+<IfModule unixd_module>
+#
+# If you wish httpd to run as a different user or group, you must run
+# httpd as root initially and it will switch.  
+#
+# User/Group: The name (or #number) of the user/group to run httpd as.
+# It is usually good practice to create a dedicated user and group for
+# running httpd, as with most system services.
+#
+User zhuwj
+Group zhuwj
+
+</IfModule>
+
+DocumentRoot "/home/zhuwj/php/workspace"
+<Directory "/home/zhuwj/php/workspace">
+	Options FollowSymLinks
+	AllowOverride None
+	Require all granted
+	Order allow,deny
+	Allow from all
+</Directory>
+
+
+
+
+sudo /etc/init.d/mysql start
+sudo /usr/local/apache2/bin/apachectl start
+
+
+
+3.浏览器请求php文件流程
+<?php
+$str = "hello";
+?>
+
+<script language = "php">
+echo "不推荐";
+</script>
+
+如果只是一个变量
+
+<?=$str?>
+
+注释
+/*
+*/
+//
+#
+
+
+基本语法
+
+变量 $arg = 100;
+类型    
+	基本类型
+		integer  
+		float/double php不区分 单精度 双精度
+		boolean 
+		string
+	复合类型
+		array
+		object
+	特殊数据类型
+		null
+		resource 资源类型  (e.g  $conn = mysqli_connect("localhost","root","sunny");)
+
+
+
+$a;
+echo $a; #notifine  通知 不是致命错误 后面的程序可以执行
+var_dump($a);# display NULL
+
+
+**int
+
+	一个整数一般占4个字节（与系统相关），一个字节占8bit（位）
+
+	最高位表示符号 0正数 1负数
+
+	echo PHP_INT_SIZE; 查看一个整数占多少位
+	echo PHP-INT_MAX;  最大数
+
+	变量被赋值超过int会编程float
+
+**boolean
+
+	boolean true false
+	以下都是false
+		int 0 
+		float 0.0
+		string ""(空串) 以及"0" （字符0）
+		不包括任何元素的数组
+		不包括热河成员变量的对象
+		特殊类型NULL
+
+**float
+
+	精度最大从左边开始数非零的开始后14位 超过14位4舍5入
+	$a = 0.00000000000029
+        $b = 0.111111111111129
+
+
+**string
+	
+	一个字符占一个字节
+        $str="abc";  //3个字节
+        最大与内存相关
+        "abc"  'abc' 都可以 区别 
+        $i=90;
+	$u1="hello$i"; // hello90
+        $u2='hello$i'; // hello$i
+
+        $v ="ab\"";    // ab
+        $v ='ab\"'     // ab\"
+
+        $b = 'ab\''    // ab'
+        $b = "ab\'";   // ab\'
+        
+
+         ""输出其值  ''输出本身
+
+php类型自动转换 
+
+         $s=7/3 //2.33333333....
+
+运算符
+	-- ++
+
+	$a+=
+	$a-= 
+	$a*= 
+	$a/=  
+	$a%=  
+
+	==  
+	===
+
+	!=
+	<>
+	!==   不相等 ||  类型不同
+	>
+	<
+	>=
+	<=
+
+	var_dump($a,$b);
+
+	and  都是true
+	or   其中之一true
+	xor  其中之一true  但不同是
+	!
+	&&
+	||
+
+	$a = false||true;
+	$b = false or true;
+	var_dump($a,$b);
+	//bool(true) bool(false)
+	or(and)优先级低
+	and or <  =  < && ||
+
+三元
+	$a=$b ? "1" : "2";
+
+字符串相加
+	$str = "a";
+	$str1 = $str."a";
+	.在php里表示拼接
+
+类型运算符
+	instanceof
+	<?php
+	class S1{}
+	class S2{}
+	$s = new S1;
+	var_dump($s instanceof S1);
+	var_dump($s instanceof S2);
+	?>
+
+	instanceof 只能用于对象  不可以用于基本类型
+
+
+流程控制
+
+	if(exp){
+	}
+	else if (){
+	}else{
+	}
+
+	exp范围比较广 string int double boolean
+	switch(exp){
+	case 1 :    break;
+	default:    break;
+	}
+
+
+循环
+for($i = 0 ; $i <10 ; $i++){
+//TODO
+}
+
+$i=0;
+while($i<10){
+//TODO
+$i++;
+}
+
+do{
+//TODO
+i++;
+}while($i<10);
+
+
+***break; continue;
+
+	switch (arg){
+		case 1 : break 2;//表示跳两**层**  跳多了 fatal error （致命错误）
+	}
+
+	for(){
+		continue 2; 
+	}
+
+
+**goto
+
+常量
+	define("TEX_RATE",0.08);
+
+
+函数
+
+***函数不区分大小写
+	function fname($arg){
+		//DO STH
+		return "";
+	}
+
+******每个程序在内存中有一个入口栈  方法会开辟一个新的栈  (比如第归 第归刺激开辟几个新的栈)
+
+php 引用  
+
+	require "some.php";
+
+	$some_php="some.php";
+	require $some_php;
+
+	require('some.php') require_once('some.php');
+
+	require('') 每一次都会引入  require_once('') 会检查之前是否引入，如果已经引入，则不再引入
+	多次require 不能有重名函数
+
+
+	include  include_once
+	把一个页面包含到另一个页面
+	include 'some.php';
+
+	$some_php="some.php";
+	include $some_php;
+
+	include('some.php');
+
+	include_once 和require_once 类似
+
+
+	include  require 比较
+	同   引入别的页面
+	不同 include出现了错误继续执行，require终止程序
+
+	****常用 require_once
+
+        *****第归 2 2 3 (48'31'')
+
+方法内使用方法外的变量
+	$a =1;
+	function fun(){
+	golbal $a++;
+
+	}
+	fun();
+	echo $a;//2
+	
+删除变量,清除变量
+	$a;
+	unset($a);
+
+函数默认值
+	function fun ($a = "a" , $b){
+		//...
+	}
+
+php函数默认值传递，
+	******如果引用传递
+	$a = 1;
+	functtion fun(&$b){
+		$a++;
+	}
+	fun($a);
+	echo $a;
+
+php错误级别
+	notice 
+	waring
+	error
+
+
+位运算
+
+二进制
+	1.最高位 0正数  1负数
+	2.正数 原码 反码 补码一样 
+	  原码  用二进制表示一个数  00000000 00000000 00000000 00000001
+	  反码  
+	  补码
+	3.负数反码  =  原码符号位不变 其他位取反  0->1 1->0
+	  原码  10000000 00000000 00000000 00000001
+	  反码  11111111 11111111 11111111 11111110
+	  补码  11111111 11111111 11111111 11111111
+	4.负数的补码  =  负数的反码+1
+	5.0的反码 补码都是0 
+	6.php的数都是有符号的数
+	7.***计算机运算的时候都是以补码运算
+
+php位运算
+&   与       全1  则1
+|   或       有1  则1
+^   异或     同0   异1
+~   取反     0>1  1>0  
+
+左移  右移
+<<   符号位不变 低位左移 0补齐
+>>   右边舍弃  左边用符号位补齐
+
+
+最快的方式*8  普通的方式*8
+arg<<3        arg*8
+
+
+
+数组
+**每个元素的类型可以不同
+**print_r($arr); 输出全比数据信息
+**var_dump($arr);输出全比数据信息
+<?php
+$hen[0]=1;
+$hen[1]=2;
+$hen[2]=3;
+$hen[3]=4;
+$hen[4]=5;
+
+for($i = 0 ; $i < count($hen) ; $i++){
+	echo $hen[$i].'<br/>';
+}
+?>
+
+初始化
+
+1. $arr[0]= 0;
+   $arr[2]= 1;
+2. $arr = array (1,2,3,4,5,6);
+3. $arr['key1'] = "value1";
+   $arr['key2'] = "value2";
+   $arr = array("key1" => "value1" , "key2" , "value2");
+
+使用 特殊类型 作键  
+$arr[true] = "true";
+$arr[false] = "false";
+
+echo $arr[1]; //true
+echo $arr[0]; //false
+
+$arr[null] = "kong";
+echo $arr[""]; //kong
+echo $arr[null]; //kong
+
+
+$arr[12.34] = "111";
+echo [12.34];//1111
+echo [12];//1111
+
+
+数组常用函数
+
+count($arr); //个数
+is_array($arr); //判断是否是数组
+print_r($arr);  var_dump($arr);
+explode(",","a,b,c,d,e,f") ;  //java里的 split
+
+
+删除数组中某一个元素
+unset($arr[1]);
+
+数组操作
+$a+$b    联合
+$a==$b   比较，是否有相同的键值对
+$a===$b  比较，是否有相同的键值对，并且顺序和类型都一样
+$a!=$b   
+$a<>$b
+$a!==$b
+
+
+
+***** php关闭notice  
+1.php.ini  error_reporting = E_all & ~E_NOTICE
+2.error_reporting(E_ALL^E_NOTICE);
+3.在出错的地方 $s=$_REQUEST['aa'];  添加 $s=@$_REQUEST['aa'];
+
+
+*****数组排序
+
+内部排序 内存排序
+  交换式
+    冒泡 bubble.php
+    选择 
+  插入
+  快速(折半)
+外部排序 借助外部存储设备
+
+*****查找
+
+顺序查找
+
+二分查找（前提是排好须的）
+
+
+
+**二维数组
+
+
+4.php面向对象
+
+php创建对象  
+	Object $o = new Object(); 
+	Object $o = new Object;
+
+访问属性
+	$o->name;
+
+
+对象内存
+
+
+        全局区(静态区)
+
+堆区     常量区            栈区
+
+        代码区
+         
+堆区 存放对象
+栈区 存放基本类型，已经指向堆区对象的变量名
+
+
+***方法传对象的时候是传地址   ，传基本类型的时候是传值
+数组默认传值
+
+ 类里面的方法访问成员方法的时候 $this->field
+
+
+*构造方法
+php中只有一个构造方法 
+默认访问权限是 public
+
+
+析构函数
+ 
+析构函数调用的顺序 先创建的对象最后被销毁
+
+栈 先入后出
+
+使用析构函数的节点
+1.程序结束时候
+2.当一个对象成为垃圾对象的时候 
+  当没有对象指向的时候成为垃圾
+ Php 当对象成为垃圾 立即将回收资源
+ 不写就没有析构的过程
+
+
+全局变量
+
+global $g ; 使用前先获取
+
+静态变量 方法
+static $s;
+
+类内部 self::$s;
+类外部 Clazz::$s; 
+
+
+静态方法
+操作静态变量需要静态方法
+
+
+访问修饰符
+
+      public     protected     private
+全局    y            n             n
+子类    y            y             n
+本类    y            y             y
+
+方法默认修饰符是public
+属性必须要指定修饰符号
+
+类里面的成员方法之间调用需要使用 $this->functionname();
+
+__set(){
+
+}
+
+__get(){
+
+}
+
+以上两个方法不推荐
+
+
+继承
+
+**创建子类对象，默认不调用夫类的构造方法
+
+子类调用夫类的方法
+parent::functionname();
+ParentClassName::functionname();
+
+重载
+php 重载和java不一样，使用魔术方法  （不推薦）
+	<?php
+
+	class Child {
+		public $name;
+		public static  $num;
+
+		public function te1($p){
+			echo "te1";
+		}
+		public function te2($p){
+			echo "te2";
+		}
+
+		function __call($method,$p){
+			if ($method == "te"){
+				if (count($p)==1){
+					$this->te1($p);
+				}else if (count($p)==2){
+					$this->te2($p);
+				}
+			}
+		}
+	}
+	$a= new Child();
+	$a->te(2,2);
+
+	?>
+
+
+**php魔术常量
+	echo '<br/>'.__LINE__;
+	echo '<br/>'.__FILE__;
+	echo '<br/>'.__DIR__;
+	echo '<br/>'.__CLASS__;
+	echo '<br/>'.__FUNCTION__;
+
+重写方法
+	和java差不多
+	重写不能缩小夫类方法的修饰符
+
+抽象类 方法
+
+	abstract class A {
+		abstract function cry();
+	}
+
+	class AA extends A{
+		function cry(){
+			echo "aa bb <br/>";
+		}
+	}
+
+	class AB extends A{
+		function cry(){
+			echo "aa vv<br/>";
+		}
+	}
+
+	$aa = new AA();
+	$ab = new AB();
+
+	$aa->cry();
+	$ab->cry();
+
+
+接口
+interface intfa{
+function aa();
+}
+
+final
+和java差不多
+
+const ABC=10;//常量
+
+常用函数
+isset($_REQUEST['name'])  检查是否设置值
+js 函数 isNaN 是不是数字
+
+
+异常处理
+	exit();退出
+
+	检查file是否存在 file——exists($filename);
+	打开file      fopen
+	关闭file      fcolse
+
+	die(); 等同于 exit();
+	die("file not exists!!!");
+	file_exists($filename) or die("file mot ");
+
+自定义错误函数
+错误级别
+	E_WARNING               非致命 ，继续执行
+	 $fp = fopen($filename, "r"); 
+	E_NOTICE                 
+	E_USER_ERROR            致命错误
+	E_USER_NOTICE
+        E_USER_WARING
+	E_RECOVERABLE_ERRO
+	E_ALL
+
+	<?php
+	function my_error($errno,$errinfo){
+		echo "***$errno : $errinfo  ******";
+		exit();
+	}
+	set_error_handler("my_error",E_WARNING);
+	$fp = fopen("111", "r");
+	?>
+
+错误触发器
+	trigger_error("fuck wwe");
+	默认notic 如是是别的需要指定
+	 处理set_error_handler("my_error",E_USER**); 
+	通常是
+	E_USER_ERROR
+	E_USER_NOTICE
+	E_USER_WARNING
+
+错误日志
+
+
+***设置时区
+1.date_default_timezone_set("PRC");
+
+
+异常捕获
+
+	try{
+
+	}catch(Exception e){
+	  //1.自己处理
+	  //2.抛出
+	}
+
+		try {
+			addUser("2");
+		}catch (Exception $e){
+			echo "fail : ".$e->getMessage();
+		}
+		function addUser($u){
+			if ("1" ==$u){
+
+			}else{
+				throw new Exception("fail11 ");
+			}
+		}
+
+
+**顶级异常处理器
+
+function my_top_exception($e){
+	echo "top exception ".$e->getMessage();
+}
+
+//触发自定义异常处理器
+set_exception_hander(my_top_exception);
+
+
+
+*****http协议
+1.建立在tcp/ip协议基础上
+
+http请求
+
+请求行
+消息头
+消息体（实体内容）
+
+
+请求行
+	GET /http/http 1.htmlHTTP/1.1                  get方式  请求资源
+
+消息头
+	Accept:*/*                                     表示客户端可以接受任何数据
+	Referer:http://localhost:80/sunny/hellol.html  表示请求发来的请求  可以防盗连
+	Accept-Language:zh-cn                          接受语言 支持语言
+	User-Agent:Mozilla/4.0(compatible;MSIE 8.0);Windows NT5.1;  客户端的浏览器 系统信息
+	Trident/4.0;NETCLR2.0.50727; .NET4.0C;NET4.0E)  
+	Accept-Encoding:gzip,deflate                   接受什么格式的数据压缩格式
+	Host:localhost:80                              主机
+	Connection:Keep-Alive                          表示保持连接，不要马上断开
+
+消息体
+	name=hello
+
+
+$_SERVER
+foreach ($_SERVER as $k => $v){
+	echo "$k   =  >  $v <br/>";
+}
+HTTP_HOST      主机
+REMOTE_ADDR    访问地址
+DOCUMENT_ROOT  apache主目录
+REQUEST_URI    请求的资源
+
+header("Location: ss.html"); 跳转页面
+
+
+http请求方式 post get head options delete trace put
+常用post get
+区别
+1.安全性   get的参数会显示在“请求行”里
+          post 会放在“消息体”里
+2.数据大小 
+  http本身不限制数据大小，浏览器作限制
+  get  2k+35
+  post 没有限制 
+
+防盗连
+	if (isset($_SERVER['HTTP_REFERER'])){
+		if (strpos($_SERVER['HTTP_REFERER'], "http://localhost/sunny0001/html/")==0)
+		{
+			echo "ok";
+		}else {
+			echo "not ok";
+		}
+	}
+
+
+http相应
+
+HTTP/1.1 200 OK                                成功状态
+Server:Mircorsoft-IIS/5.0                      服务器信息
+Date Thu,13 Jul 2014 05:56:55 GMT              页面更新时间(缓存) 
+Content-Length:999                             服务器回复的数据大小
+Content-Type:text/html                         文档类型
+Cache-control:private                          private表示没有缓存
+
+HTTP/1.1 302 Found
+Location  c.php
+Content-Encoding:gzip                          支持gzip压缩算法
+Content-Language:zh-cn
+Last=Modified:Tue 11 Jul 2014 18:55:15 GMT     请求的资源的最新更新时间
+Refresh :1 ;url=http:www.google.com            间隔时间（该时间后继续访问） ： 重定向到目标网址
+Content-Dispostion:attachment;filename=aaa.zip
+Transfer-ENcoding:chunked
+Set-Cookie:SS=Q0=5Lb_nQ;path=...
+---
+Expires:-1
+Cache-Control:nocache                           这三个控制页面缓存
+Pragma:no-cache
+--
+Connection : close/Keep-Alive
+Date Tue 11.Jul 2000 18:55:55 GMT
+
+
+
+状态码
+100-199
+200-299   200 成功
+300-399   302 请求新的页面   304 目标页面没有修改
+400-499   404资源没有找到
+500-599   
+
+
+间隔若干秒后访问
+header("Refresh:3;url=http://www.google.com");
+
+禁用缓存
+header("Expires:-1");
+header("Cache-Control:no_cache");
+header("Pragma:no_cache");
+
+文件下载(绝对路径效率好一些)
+文件类型
+1.文件（1.txt）
+2.二进制文件（music.mp3,video.avi,pic.jepg）
+
+	//返回文件
+	header("Content_type: application/octet-stream");
+	//按照字节传输
+	header("Accept-Ranges: bytes");
+	//每一次的传输的大小
+	header("Accept-Length: $file_size");
+	//下载的文件的名字
+	header("Content-Disposition: attachment;filename=".$filename);
+
+
+**中文处理
+iconv("utf-8", "gb2313", $filename); 
+
+
+php mysqli mysql
+1.mysql拓展
+2.myhsqli拓展
+3.pdo拓展 
+  
+1.使用mysql
+编辑php.ini
+extension=php_mysql.dll
+<?php
+phpinfo();
+// 查看当前php支持哪些库
+?>
+create table user1(
+id  int primary key auto_increment,
+name varchar(32) not null,
+passwd varchar(64) not null,
+email varchar(128) not null,
+age tinyint unsigned not null
+)
+md5 加密
+unsigend 无符号 都是正数
+char varchar 区别 不可以变  可变
+
+<?php
+//获取链接
+$con =myqsl_connect("127.0.0.1","root","sunny");
+if(!$con){
+die("error".msql_eror());
+}else{
+echo "success ";
+}
+//选择数据库
+mysql_select_db("sunny");
+//设置编码
+//发送sql
+$sql = "select * from user";
+$res=mysql_query($sql,$con);//返回的类型是资源类型  特殊数据类型
+//接收数据
+while($row=mhysql_fetch_row($res)){
+echo "<br/>".var_fump($row);
+foreach($row as $k => $v){
+    echo "$k  =>  $v<br/>";
+}
+}
+//关闭链接 释放资源
+mysql_free_result($res);
+mysql_close($con); 
+//
+?>
+
+1.mysql 资源的释放
+2.mysql_colse(); 系统会帮助关闭
+
+
+
+mysql 细节
+1.cml 返回boolean insert delte update
+2.获取结果的每一行的
+	mysql_fetch_row($res)
+	mysql_fetch_assoc($result)
+	mysql_fetch_array($result)
+	mysql_fetch_object($result)
+
+
+获取刚刚插入主键
+mysql_insert_id($conn);
+
+
+mysqli拓展  (mysql improve)
+两套风格 面向过程、对象
+mysqli 支持批量执行  dql  或者  dml  最好不要混合执行
+
+批量查询
+$res = $mysqli->store_result();
+
+
+******事务
+$mysqli->autocommit(false);
+$mysqli->rollback();
+$mysqli->commit();
+
+
+mysql控制台事物
+
+start transaction
+savepoint point1
+do sth
+rollback
+commit
+
+
+预定义超全局变量(共9种)
+
+$_GET;
+$_POST;
+$_REQUEST;
+$_SERVER
+$_ENV
+$_FILES
+$_COOKIE
+$_SESSION
+$GLOBALS
+
+echo print_r($_SERVER);
+
+$_SERVER['my'] = "hello"; //只在当前页面有效
+
+
+$_GET 中文乱码问题
+header('Content-Type:text/html;charset=utf-8');
+
+$_POST
+	复选框 name[] 
+	<input type = "checkbox" name ="ho[]" value= "ho01"/>ho01
+	<input type = "checkbox" name ="ho[]" value= "ho02"/>ho02
+	其他一样
+
+$_REQUEST (不建议经常使用) 包含了 $_GET $_POST $_COOKIE  
+	$_SERVER['REQUEST_METHOD'] 提交方式 POST/GET
+
+
+$_SERVER http请求行 消息头  还包括系统等信息
+
+$ENV 服务器端的环境变量
+
+
+
+zend studio 
+编码
+    window -> prefence general-> content type  text:utf-8
+提示助手
+    content assist
+注释
+    块注释 ctrl shift /    ctrl shift \
+
+
+cookie
+	会话包括 => 打开浏览器 访问网站 退出网站 关闭浏览器
+
+
+date_dufault_timezone_set();//设置时区
+
+session （默认24min）
+服务器端数据
+session 可以保存所有基本类型和对象
+格式  key|type:length:value
+汉字直接存汉字
+
+$_SESSION['name'] = "sunny";
+
+删除session
+unset($_SESSION['name']);
+session_destroy();
+
+
+
+
+
+
+
+
+sudo /etc/init.d/mysql start
+sudo /usr/local/apache2/bin/apachectl start
+
+**********
+linux内核
+算法
+网络
+数据库

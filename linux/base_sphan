@@ -1,0 +1,499 @@
+1.startx  进入图新界面
+  start -> logout
+
+2.shutdown -h now  关机
+  shutdown -r now  重启
+  reboot           重启
+
+3.logout           注销
+
+4.vi编辑器
+	vi Hello.java
+	i              进入插入模式
+	esc            退出插入模式 进入命令模式
+	:
+	w                写
+	q                退出
+	q!               强退 
+	javac Hello.java 编译Hello.java
+
+
+	编译一c程序
+		报错
+	gcc: error trying to exec ‘cc1plus’: execvp: No such file or directory 
+		解决
+	yum install gcc-c++
+
+	gcc -o a.out Hello.cpp 
+
+5.ls  ll(ls -l 长列模式显示   ls -a  显示全部文件，包括隐藏文件）   dir
+
+
+ll 
+-rw-r--r--    1    username groupname  date  filename
+            如果是文件则是1，如果是目录则是目录下的文件数
+
+
+6.linux文件目录
+
+			/
+	root  mnt   home   etc   bin  var  boot  sbin  usr  dev  proc  tmp
+
+	root  root用户的相关文件
+	home  存放普通用户的相关文件
+	bin   存放常用命令的目录
+	sbin  需要一定权限才能使用的命令
+	mnt   软驱、光驱默认挂载位置
+	boot  存放引导相关的文件
+	etc   存放配置相关的文件（环境变量等）
+	var   存放经常变化的文件
+	usr   默认安装程序的文件夹
+	dev   接口设备文件目录 ？
+	proc  当前系统核心与程序执行的信息
+	tmp   临时文件目录
+
+
+7.cd         cd /       cd ~       cd .. 
+
+
+8.pwd  显示当前路径
+
+
+9.用户管理
+useradd username  添加用户
+passwd sunny      设置密码  passwd  （给当前用户设置密码）
+userdel sunny     删除用户  userdel -r sunny (删除用户及用户主目录)
+
+
+10.linux运行级别
+
+0：关机
+1：单用户
+2：多用户无网络
+3：多用户有网络       （常用）
+4：系统为使用保留给用户
+5：图形界面           （常用）
+6：系统重启
+
+/etc/inittab
+
+修复系统6 状态系统 e  e  空格1  （1->单用户级别） b(boot) 可以用来找回密码
+
+/etc/inittab  id:5:initdefault
+
+
+11.mkdir dirname  创建目录
+   rmdir dirname  删除空目录
+
+
+12.touch  创建空文件\修改文件的最后使用时间
+
+13.mv   移动文件 或者改文件名
+   cp   复制命令
+
+14.rm   删除文件或者目录  rm -rf  删除内容  r第归 f强制
+
+15.ln   创建连接  ln -s oriTar  newTar
+
+
+16.more   显示文件内容 带分页
+
+17.less    显示文件内容 带分页
+
+18.grep    在文本中查询内容     
+	grep -n "keywrod"  filename  (-n 显示行数)        
+	ll /etc | grep ssd
+
+19.|        管道命令   把上一个命令的结果 交给 | 后面的命令处理
+
+20.man      帮助命令
+
+21.find   dir   -name  filename  全匹配  (还有很多别的参数)
+
+22. >   重定向命令 (覆盖\新建)
+    >>  在后面追加
+
+	ls -l > a.txt  把内容输入到 文件中
+
+23.文件所有者
+usermod -g grpname username
+
+24.组
+groupadd  grpname
+usermod -g grpname username  改变所在组
+chown  username filename
+chgrp  grpname  filename
+
+vi/cat /etc/group
+组名：加密...：组号
+
+创建用户并同时指定组
+useradd -g grpname username 
+
+查看用户
+cat /etc/passwd
+
+用户名 ：密码（X）:用户id：组id ：注释 ： 用户主目录：用户使用的shell解析器
+
+1 2  3  4
+-rwxr--r--
+1.文件类型  - 普通文件  d文件夹  l连接
+2.文件的所有者对该文件的权限  r（4）:read  w（2）:write  x（1）:执行
+3.文件所有者用户所在组对该文件的权限
+4.其他用户对该文件的权限
+
+25.修改访问权限
+chmod 777 filename
+
+26.who am i 
+
+
+27.搭建javaEE开发环境
+    1.jdk
+        把镜像文件挂载到linux服务器上
+        虚拟机的配置里cd-rom  挂载文件
+        mount /mnt/cdrom 挂载iso文件
+        umount /mnt/cdrom 卸载
+        光驱默认挂载到/mnt/cdrom/ 下
+	安装文件cp到制定的路径
+	运行bin文件  ./filename.bin
+
+        /etc/profile  环境配置文件  
+		JAVA_HOME=/dir/jdk1.8.0
+                PATH=$PATH:/dir/jdk1.8.0/bin
+                CLASSPATH=.:/dir/jdk1.8.0/jre/lib/rt.jar
+                export JAVA_HOME PATH CLASSPATH
+        linux 的注释使用 #
+
+        安装 tar.gz  
+        tar -zxvf filename.tar.gz
+        运行程序 ./eclipse
+        web服务器 tomcat jboss weblogic websphere 
+        
+
+28.地址符
+./eclipse &   后台运行
+./eclipse     非后台运行 ，当前控制台不可操作
+
+
+29.分区
+分区- 基本分区    基本分区可以马上使用 不能在分区
+   - 拓展分区   拓展分区需要先分区在使用，也就说三要二次分区
+            -逻辑分区    逻辑分区没有上限
+   primary Partion
+   extension Partion
+   logical partion
+
+两者之和不能大于4个
+
+查看分区
+fdisk -l   fedora (df -lh)
+/dev/sda1
+
+dev 设备
+sda1  分区名称    硬盘的种类？ SCSI硬盘  IDE硬盘
+sd SCSI硬盘   IDE硬盘  
+hd IDE硬盘    
+a  第一块硬盘 sdb第二个硬盘
+1  分区       sdc4  第三块硬盘第四个分区
+
+逻辑分区从5开始 sda5
+
+
+30.安装linux
+分区
+/boot
+/swap 交换分区  物理内存的两倍 
+/    根分区 尽可能大
+
+find -size +1000000k  按大小查找文件
+
+
+
+31.shell
+将命令解释成内核可以执行程序的东西
+shell 分类 
+Bourne /bin/sh
+C      /bin/csh
+Kom    /bin/ksh
+
+查看目前使用shell
+	env      显示当前系统的环境变量
+修改shell
+	chsh -s /bin/csh
+
+tab 命令补全
+tab  （double click ） 显示以当前的开头的东西
+
+samba windows linux 文件共享
+
+
+32.history
+
+!加上号 可以直接用
+
+
+33.tcp/ip 基础
+
+电脑和电脑之间通信是通过“通讯协议”
+最常用的TCP/IP 
+TCP/IP代表一组协议 
+
+应用             应用
+表示
+会话             传输  解释数据
+传输            
+网络             网络(ip层)  定位ip地址和确定连接路径
+数据链路
+物理             链路   与硬件驱动对话
+
+
+pdf tcp/ip详解 卷1：协议
+pdf tcp/ip详解 卷2：实现
+pdf tcp/ip详解 卷3：tcp事物协议 HTTP NNTP和UNIX域协议
+
+
+ip地址 包括网络号主机号 32位  分为 a b c d e 5类
+
+路由传递
+
+
+查看 www.google.com.tw 的ip  ping www.google.com.tw
+
+查看到达www.google.com.tw 经过的路由 traceroute www.google.com.tw
+
+
+查看ip  linux/unix：ifconfig  win：ipconfig 
+
+广播  netsend "hello" 192.168.255.255
+
+127.任意值  表示回路 127.0.0.1   **出去全零全一**
+
+linux 配置网络
+
+	root身份登陆
+		1）setup
+		2) 配置生效 /etc/rc.d/init.d/network  restart
+
+		1）ifconfig eth0 192.168.1.102  立即生效，重启后恢复
+		
+		1）修改 /etc/sysconfig/network-scripts/ifcfg-eth0 
+
+外围windows 访问虚拟机的ip
+rpm  redhat package manager
+
+安装卸载 rpm包
+
+rpm -ivh filename.rpm  i install v verbose提示 h hash进度条
+rpm -e filename.rpm
+rpm -U filename.rpm 
+
+检查是否安装了 某rpm
+rpm -qa |grep samba
+
+install samba  1.common 2.client 3.samba
+
+samba使用
+创建用户 useradd sunny001 
+        passwd sunny001 sunny
+        cat /etc/passwd | mksmbpasswd.sh > /etc/samba/smbpasswd
+ 
+
+
+33.查询linux系统安装了那些rpm软件
+
+rpm -qa
+epm -q mysql 查询mysql是否安装
+
+
+加密 (ssl md5)
+
+
+
+34. windows 查看网络信息 netstat -an 
+
+ssh  shortfor secure shell
+
+35.任务调度：指定的时间执行程序或命令
+    1.crontab -e
+    2. 0      2     *       *       *   date >> /home/zhuwj/temp/dd
+      min    hour  date    month   week
+      0-59   0-23  1-31    1-12    0-6
+
+    调度多任务 
+	方法一 直接写在 crontab -e
+	方法二 写到shell里
+              * * * * * /home/task.sh
+
+    终止任务
+	crontab -r  删除
+
+        crontab -l  列出任务
+
+36.进程管理
+   进程 ： 正在执行的程序
+   线程 ： 1.轻量级的进程，
+          2.进程有独立的地址空间，线程没有 
+          3.线程不能独立存在，有进程创建
+          4.进程相对比进程耗资源
+   每个进程都有两种存在方式 前台后台
+
+  查看进程 fs -aux
+   pid 进程号  cpu  mem内存  vsz虚拟内存  rss物理内存 tty终端机号
+   stat状态 start启动时间 time消耗cpu时间 command命令或进程名
+
+   终止进程
+    kill / killall   + pid
+
+    kill -9 pid
+    killall  终止进程其子进程
+
+    动态监控进程  top 
+
+系统时间  系统启动了多长时间  当前登陆用户个数  当前系统负载情况  （三个数加起来/3 超过0.6 可能有点危险）
+进程数 运行  休眠  停止状态  僵尸进程数（进程由于某种原因停止了 但是没有通知夫进程 一直占用资源）
+cpu id/idle cup被占用率
+内存使用情况
+swap（类似win的虚拟内存）
+
+top -d 10 每10秒刷新一次状态
+在top状态 输入u 监视指定用户的进程
+
+
+date 
+
+
+cal 日历
+
+
+netstat -an 网络情况  (-an 按端口号排序) -anp 带进程号
+
+
+显示数据包经过历程命令  追踪路由
+traceroute www.google.com.tw
+
+route
+
+
+37.netstat -anp |more
+查看网络状态  可以看到谁远程登陆
+kill -9 pid 关闭连接
+
+
+
+**************核心要点*********************
+1.linux目录
+ /bin   普通用户的可以执行命令，系统任何而用户都可以执行该目录中的命令
+ /boot  存放linux 炒作系统洗东时候所需的文件
+ /dev   系统中所有设备文件
+ /etc   系统中的配置文件
+ /home  普通用户的宿主目录，每个用户在该目录下都一个与用户名同名的目录
+ /mnt   子目录用户系统中的可以东设备的挂载点
+ /root  超级铜壶的宿主目录
+ /sbin  系统的管理命令，普用用户不能执行
+ /tmp   临时目录
+ /usr   系统中的程序和相关文件
+ /var   系统中常变化额文件（日志、用户邮件）
+
+2.
+当前目录 pwd
+相对路径 ../dir1/dir2/
+绝对路径 /home/zhuwj/dir1/dir2/
+工作目录 例如tomcat  就是tomcat的安装路径
+
+3.运行级别
+	0：关机
+	1：单用户
+	2：多用户状态 无网路
+	3：多用户状态 有网络
+	4：系统为使用保留给用户
+	5：图形界面
+	6：系统重启 
+
+	默认是 3 或者 5
+/etc/inittab id:5 initdefault
+4.cp
+cp 文件夹
+cp -rf dir/ /home
+
+ln -s 原目录 连接目录
+
+5.查询
+
+grep -n "keyword" /home/zhuwj/work.java
+
+grep -n "keyword" /home/zhuwj/work.java /home/*  
+(work.java 文件里  和  /home/ 文件夹下)
+
+
+find 
+find /home -name  abc
+find /home -amin -10
+find /home -atime -10
+find /home -cmin -10
+find /home -ctime +10
+
+
+
+6.
+ ls -l >  file.txt
+ ls -l >> file.txt
+
+7.
+vi task.sh
+/home/mysql/bin/mysqldump -uroot -psunny > /home/backup/ba.bak
+chmod 744 task.sh
+
+crontab -e
+0 2 * * * task.sh
+
+
+8.环境变量
+/etc/profile                系统的环境变量
+/etc/bashrc                 系统启动就执行的程序
+/home/zhuwj/.bash_profile   用户环境变量
+/home/zhuwj/.bashrc         用户登陆就执行的程序
+
+临时生效
+export  PATH=$PATH：/root
+
+echo
+
+9.linux通配符
+* 匹配多个
+? 匹配一个
+ls -l 
+ls -l abc[0-6].java
+
+
+10.alias 别名
+ls -l |grep Do
+alias llh='ls -l | grep Do'
+
+
+11.linux启动过程
+bios自检
+启动 GRUB/LILO
+运行内核检查硬件
+进行第一个进程init  (ps aux (pid=1))
+init 读取 /etc/inittab
+/etc/rc.d/rc.sysinit
+/etc/rc.d/rcX.d/[KS]* 根据运行级别Z配置服务  终止以K开头 启动以S开头
+/etc/rc.d/rc.local 执行本地特殊配置
+/其他特殊服务
+
+
+12.压缩解压缩
+zip  unzip
+zip tar.zip file1  file2
+zip -r tar.zip filedir  (文件夹)
+
+unzip tar.zip
+
+tar.gz
+
+
+
+
+5.约瑟夫问题 
+

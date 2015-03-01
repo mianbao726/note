@@ -1,0 +1,696 @@
+一、连接MYSQL：
+
+格式： mysql -h主机地址 -u用户名 －p用户密码
+-uroot -p，
+mysql -h110.110.110.110 -uroot -pabcd123
+
+退出MYSQL命令
+ exit
+
+二、修改密码：
+
+格式：mysqladmin -u用户名 -p旧密码 password 新密码
+mysqladmin -uroot -password ab12(初始没有密码的情况)
+mysqladmin -uroot -pab12 password djg345
+
+三、增加新用户：
+格式：grant select on 数据库.* to 用户名@登录主机 identified by "密码"
+例1、增加一个用户test1密码为abc，让他可以在任何主机上登录，并对所有数据库有查询、插入、修改、删除的权限。首先用以root用户连入MYSQL，然后键入以下命令：
+grant select,insert,update,delete on *.* to test1@"%" Identified by "abc";
+
+但例1增加的用户是十分危险的，你想如某个人知道test1的密码，那么他就可以在internet上的任何一台电脑上登录你的mysql数据库并对你的数据可以为所欲为了，解决办法见例2。
+
+例2、增加一个用户test2密码为abc,让他只可以在localhost上登录，并可以对数据库mydb进行查询、插入、修改、删除的操作（localhost指本地主机，即MYSQL数据库所在的那台主机），这样用户即使用知道test2的密码，他也无法从internet上直接访问数据库，只能通过MYSQL主机上的web页来访问了。
+
+grant select,insert,update,delete on mydb.* to test2@localhost identified by "abc";
+
+如果你不想test2有密码，可以再打一个命令将密码消掉。
+
+grant select,insert,update,delete on mydb.* to test2@localhost identified by "";
+
+四、显示命令
+
+1、显示数据库列表：
+show databases;
+
+2、显示库中的数据表：
+use mysql； ／／打开库，学过FOXBASE的一定不会陌生吧
+show tables;
+
+3、显示数据表的结构：
+describe 表名;
+
+4、建库：
+create database 库名;
+
+5、建表：
+use 库名；
+create table 表名 (字段设定列表)；
+
+6、删库和删表:
+drop database 库名;
+drop table 表名；
+
+7、将表中记录清空：
+delete from 表名;
+
+8、显示表中的记录：
+select * from 表名;
+
+五、一个建库和建表以及插入数据的实例
+create database school; //建立库SCHOOL
+use school; //打开库SCHOOL
+create table teacher //建立表TEACHER
+(
+
+id int(3) auto_increment not null primary key, //id设置为主关键字，并自动设值，也就是添加的时候，你不必向ID字段写内容
+name char(10) not null,
+address varchar(50) default '深圳', //设置默值为深圳
+year date
+); //建表结束
+create table teacher(id int(3) auto_increment not null primary key,name char(10) not null,year date);
+//以下为插入字段
+insert into teacher values('','glchengang','深圳一中','1976-10-10'); //ID不用写内容
+insert into teacher values('','jack','深圳一中','1975-12-23');
+
+六 、修改数据库结构
+
+1、增加字段
+alter table dbname add column <字段名><字段选项>
+
+2、修改字段
+alter table dbname change <旧字段名> <新字段名><选项>
+
+3、删除字段
+alter table dbname drop column <字段名>
+
+**数据导出
+
+数据导出主要有以下几种方法：
+
+　　使用select into outfile "filename"语句
+
+　　使用mysqldump实用程序
+
+　　使用select into outfile "filename"语句
+
+可以在mysql的命令行下或在php程序中执行它。我下面以在mysql命令行下为例。在php中使用时，将其改成相应的查询进行处理即可。不过在使用这个命令时，要求用户拥有file的权限。如我们有一个库为phptest，其中有一个表为driver。现在要把driver卸成文件。执行命令：
+
+　　mysql> use phptest;
+
+　　Database Changed
+
+　　mysql> select * from driver into outfile "a.txt";
+
+　　Query OK, 22 rows affected (0.05 sec)
+
+上面就可以完成将表driver从数据库中卸到a.txt文件中。注意文件名要加单引号。那么这个文件在哪呢？在mysql目录下有一个data目录，它即是数据库文件所放的地方。每个库在单独占一个子目录，所以phptest的目录为c:\mysql\data\phptest(注意：我的mysql安装在c:\mysql下)。好，现在我们进去，a.txt就是它。打开这个文件，可能是：
+
+　　1 Mika Hakinnen 1
+
+　　2 David Coulthard 1
+
+　　3 Michael Schumacher 2
+
+　　4 Rubens Barrichello 2
+
+　　...
+
+可能还有很多记录。每个字段之间是用制表符分开的(\t)。那么我们可以修改输出文件名的目录，以便放在指定的位置。如"a.txt"可以改成"./a.txt"或"/a.txt"。其中"./a.txt"放在c:\mysql\data目录下了，而"/a.txt"文件则放在c:\目录下了。所以select命令认为的当前目录是数据库的存放目录，这里是c:\mysql\data。
+
+使用select命令还可以指定卸出文件时，字段之间的分隔字符，转义字符，包括字符，及记录行分隔字符。列在下面：
+
+　　FIELDS
+
+　　TERMINATED BY "\t"
+
+　　[OPTIONALLY] ENCLOSED BY ""
+
+　　ESCAPED BY ""
+
+　　LINES
+
+　　TERMINATED BY "\n"
+
+　　TERMINATED 表示字段分隔
+
+　　[OPTIONALLY] ENCLOSED 表示字段用什么字符包括起来，如果使用了OPTIONALLY则只有CHAR和VERCHAR被包括ESCAPED 表示当需要转义时用什么作为转义字符LINES TERMINATED 表示每行记录之间用什么分隔上面列的是缺省值，而且这些项都是可选的，不选则使用缺省值。可以根据需要进行修改。给出一个例子如下：
+
+　　mysql> select * from driver into outfile "a.txt" fields terminated by ","
+
+　　enclosed by """;
+
+　　Query OK, 22 rows affected (0.06 sec)
+
+结果可能如下：
+
+　　"1","Mika","Hakinnen","1"
+
+　　"2","David","Coulthard","1"
+
+　　"3","Michael","Schumacher","2"
+
+　　"4","Rubens","Barrichello","2"
+
+　　...
+
+可以看到每个字段都用","进行了分隔，且每个字段都用"""包括了起来。注意，行记录分隔符可以是一个字符串，请大家自行测试。不过，如果输出文件在指定目录下如果存在的话就会报错，先删除再测试即可。
+
+使用mysqldump实用程序
+
+从上面的select方法可以看出，输出的文件只有数据，而没有表结构。而且，一次只能处理一个表，要处理多个表则不是很容易的。不过可以将select命令写入一个sql 文件（复制文本应该是很容易的吧），然后在命令行下执行即可：mysql 库名先来个最简单的吧：
+
+mysqldump phptest > a.sql
+
+可能结果如下：
+
+　　# MySQL dump 7.1
+
+　　#
+
+　　# Host: localhost Database: phptest
+
+　　#--------------------------------------------------------
+
+　　# Server version 3.22.32-shareware-debug
+
+　　#
+
+　　# Table structure for table "driver"
+
+　　#
+
+　　CREATE TABLE driver (
+
+　　drv_id int(11) DEFAULT "0" NOT NULL auto_increment,
+
+　　drv_forename varchar(15) DEFAULT "" NOT NULL,
+
+　　drv_surname varchar(25) DEFAULT "" NOT NULL,
+
+　　drv_team int(11) DEFAULT "0" NOT NULL,
+
+　　PRIMARY KEY (drv_id)
+
+　　);
+
+　　#
+
+　　# Dumping data for table "driver"
+
+　　#
+
+　　INSERT INTO driver VALUES (1,"Mika","Hakinnen",1);
+
+　　INSERT INTO driver VALUES (2,"David","Coulthard",1);
+
+　　INSERT INTO driver VALUES (3,"Michael","Schumacher",2);
+
+　　INSERT INTO driver VALUES (4,"Rubens","Barrichello",2);
+
+　　...
+
+　　如果有多表，则分别列在下面。可以看到这个文件是一个完整的sql文件，如果要将其导入到其它的数据库中可以通过命令行方式，很方便：mysql phptest < a.sql。如果将数据从本地传到服务器上，则可以将这个文件上传，然后在服务器通过命令行方式装入数据。
+
+如果只想卸出建表指令，则命令如下：
+
+　　mysqldump -d phptest > a.sql
+
+如果只想卸出插入数据的sql命令，而不需要建表命令，则命令如下：
+
+　　mysqldump -t phptest > a.sql
+
+那么如果我只想要数据，而不想要什么sql命令时，应该如何操作呢？
+
+　　mysqldump -T./ phptest driver
+
+其中，只有指定了-T参数才可以卸出纯文本文件，表示卸出数据的目录，./表示当前目录，即与mysqldump同一目录。如果不指定driver表，则将卸出整个数据库的数据。每个表会生成两个文件，一个为.sql文件，包含建表执行。另一个为.txt文件，只包含数据，且没有sql指令。
+
+对卸出的数据文件，也可以同select方法一样，指定字段分隔符，包括字符，转义字段，行记录分隔符。参数列在下面：
+
+　　--fields-terminated-by= 字段分隔符
+
+　　--fields-enclosed-by= 字段包括符
+
+　　--fields-optionally-enclosed-by= 字段包括符，只用在CHAR和VERCHAR字段上
+
+　　--fields-escaped-by= 转义字符
+
+　　--lines-terminated-by= 行记录分隔符
+
+我想大家应该明白这些参数的意思了吧。一个例子如下：
+
+　　mysqldump -T./ --fields-terminated-by=, --fields-enclosed-by=" phptest driver
+
+输出结果为：
+
+　　"1","Mika","Hakinnen","1"
+
+　　"2","David","Coulthard","1"
+
+　　"3","Michael","Schumacher","2"
+
+　　"4","Rubens","Barrichello","2"
+
+　　...
+
+请注意字符的使用。
+
+小结
+
+以上为使用select和mysqldump实用程序来卸出文本的方法。select适合利用程序进行处理，而mysqldump则为手工操作，同时提供强大的导出功能，并且可以处理整个库，或库中指定的多表。大家可以根据需求自行决定使用。
+
+同时还有一些方法，如直接数据库文件拷贝也可以，但是移动后的数据库系统与原系统应一致才行。这里就不再提了。
+
+
+导入
+
+同导出相类似，导入也有两种方法：
+
+　　使用LOAD DATA INFILE "filename"命令
+
+　　使用mysqlimport实用程序
+
+　　使用sql文件
+
+由于前两个处理与导出处理相似，只不过是它们的逆操作，故只给出几种命令使用的例子，不再解释了，大家可以自行查阅手册。
+
+使用load命令：
+
+　　load data infile "driver.txt" into table driver fields terminated by ","
+
+　　enclosed by """;
+
+使用mysqlimport实用程序：
+
+　　mysqlimport --fields-terminated-by=, --fields-enclosed-by=" phptest driver.txt
+
+对于第三种，则可以使用由mysqldump导出的sql文件，在命令行下执行mysql库名。
+
+首先要声明一点，大部分情况下，修改MySQL是需要有mysql里的root权限的，所以一般用户无法更改密码，除非请求管理员。
+
+方法一
+
+使用phpmyadmin，这是最简单的了，修改mysql库的user表，不过别忘了使用PASSWORD函数。
+
+方法二
+
+使用mysqladmin，这是前面声明的一个特例。
+
+mysqladmin -u root -p password mypasswd
+
+输入这个命令后，需要输入root的原密码，然后root的密码将改为mypasswd。把命令里的root改为你的用户名，你就可以改你自己的密码了。当然如果你的mysqladmin连接不上mysql server，或者你没有办法执行mysqladmin，那么这种方法就是无效的。而且mysqladmin无法把密码清空。
+
+下面的方法都在mysql提示符下使用，且必须有mysql的root权限：
+
+方法三
+
+　　mysql> INSERT INTO mysql.user (Host,User,Password)
+
+　　VALUES('%','jeffrey',PASSWORD('biscuit'));
+
+　　mysql> FLUSH PRIVILEGES
+
+确切地说这是在增加一个用户，用户名为jeffrey，密码为biscuit。在《mysql中文使用手册》里有这个例子，所以我也就写出来了。注意要使用PASSWORD函数，然后还要使用FLUSH PRIVILEGES。
+
+方法四
+
+和方法三一样，只是使用了REPLACE语句
+
+　　mysql> REPLACE INTO mysql.user (Host,User,Password)
+
+　　VALUES('%','jeffrey',PASSWORD('biscuit'));
+
+　　mysql> FLUSH PRIVILEGES
+
+方法五
+
+使用SET PASSWORD语句，
+
+mysql> SET PASSWORD FOR jeffrey@"%" = PASSWORD('biscuit');
+
+拟也必须使用PASSWORD()函数，但是不需要使用FLUSH PRIVILEGES。
+
+方法六
+
+使用GRANT ... IDENTIFIED BY语句
+
+mysql> GRANT USAGE ON *.* TO jeffrey@"%" IDENTIFIED BY 'biscuit';
+
+这里PASSWORD()函数是不必要的，也不需要使用FLUSH PRIVILEGES。
+
+注意： PASSWORD() [不是]以在Unix口令加密的同样方法施行口令加密。
+
+MySQL 忘记口令的解决办法
+
+如果 MySQL 正在运行，首先杀之： killall -TERM mysqld。
+
+启动 MySQL ：bin/safe_mysqld --skip-grant-tables &就可以不需要密码就进入 MySQL 了。然后就是
+
+　　>use mysql
+
+　　>update user set password=password("new_pass") where user="root";
+
+　　>flush privileges;
+
+重新杀 MySQL ，用正常方法启动 MySQL 。
+
+
+一、什么是 MySQL
+
+MySQL （发音为 "My Ess Que Ell"）是 Tcx 公司（http://www.tcx.se）开发的一个多人使用、多执行绪的 SQL 资料库 Server。MySQL 主要的目标在快速、稳定和容易使用。
+
+MySQL 可在此 http://www.mysql.net/ 取得。
+
+二、MySQL 的安装
+
+本文所使用的 MySQL 版本为 mysql-3.22.27.tar.gz（原始码档），作业环境为 RedHat6.0 ＋CLE0.8 。
+
+MySQL 预设情况下会安装至 /usr/local 目录下，不过为了日后移除方便，建议将mysql独立安装在 /usr/local/mysql 目录。底下为安装 MySQL 的步骤：
+
+取得 mysql-3.22.27.tar.gz 后， 於 /usr/local 目录下解开：
+
+　　# cd /usr/local
+
+　　# tar zxvf mysql-3.22.27.tar.gz
+
+　　# cd mysql-3.22.27
+
+设定 configure 安装选项，选择安装目录 （prefix）以及支援中文 Big5 码（with-charset=big5）：
+
+　　# ./configure --prefix=/usr/local/mysql \
+
+　　#--with-charset=big5
+
+　　开始编译并安装：
+
+　　# make
+
+　　# make install
+
+　　# scripts/mysql_install_db
+
+最后一个步骤是用来产生 MySQL grant tables（会建立一个 mysql 资料库和一些 tables，用来管理使用 MySQL 的授权资讯，也就是使用者有哪些使用资料库的权限）。
+
+三、启动、停止 MySQL
+
+要启动 MySQL 的方法：（以本文将 MySQL 安装在 /usr/local/mysql 为例）
+
+# /usr/local/mysql/share/mysql.server start
+
+注意在第一次执行前，须将 mysql.server 设成可执行（chmod 744 mysql.server），另外可将这行指令加在 /etc/rc.d/rc.local 档中，让 MySQL 在开机时自动启动。
+
+要停止 MySQL 的方法：
+
+# /usr/local/mysql/bin/mysqladmin shutdown
+
+如果你为 MySQL Administrator root 帐号（非作业系统的 root）设了密码，要停止 MySQL则必须像下列这样做，MySQL 会询问你 root 的密码后才会执行 shutdown 的工作：
+
+# /usr/local/mysql/bin/mysqladmin -u root -p shutdown
+
+四、管理与使用 MySQL 简介
+
+在你开始前MySQL 提供了许多工具 （Client Tools）来与 MySQL 资料库 Server 连线，其中最主要的为mysql 交谈式连线工具与 mysqladmin 公用程式，大部份时候使用者会用 mysql 来和资料库Server 交谈。底下就以 mysql 连线工具来介绍如何维护与使用 MySQL。（以本文安装为例，mysql 工具位於 /usr/local/mysql/bin/mysql）。
+
+mysql 的使用语法如下：
+
+mysql [-u username] [-h host] [-p[password]] [dbname]
+
+MySQL 资料库有自己一套使用者帐号与权限管控方法，所以这边所指定的 username 与 password 是 MySQL 的使用者与密码，而不是作业系统的使用者与密码（当然任何使用者都能执行 mysql ，然后以 MySQL 的任何帐号进入使用） 。
+
+在你第一次安装好 MySQL 时，MySQL 的管理帐号为 root，没有设定密码 （非作业系统的 root）。所以在开始前，请先照下列步骤为 root 设好密码：
+
+使用 mysql 与 MySQL 资料库 Server 连线：
+
+# /usr/local/mysql/bin/mysql -u root mysql
+
+Reading table information for completion of table and column names
+
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor. Commands end with ; or \g.
+
+Your MySQL connection id is 201 to server version: 3.22.27
+
+Type 'help' for help.
+
+mysql>
+
+在下了 mysql -u root mysql 指令，指定以 root 帐号并开启 mysql 系统资料库，连线至 MySQL 后，会看到一些提示讯息与 mysql 工具的提示符号，以后大部份的工作皆在此提示符号下完成。
+
+更改 MySQL系统管理者 root 密码：
+
+mysql> update user set password=password('新密码') where user='root';
+
+Query OK, 0 rows affected (0.00 sec)
+
+Rows matched: 2 Changed: 0 Warnings: 0
+
+mysql> FLUSH PRIVILEGES;
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> quit
+
+Bye
+
+注意每个指令后要加上一个分号 ";" 才会让 mysql 开始执行。而第二道指令会让已载入记忆体的mysql 系统资料库更新，最后离开 mysql 工具程式。
+
+在更新 root 密码后，日后要与 MySQL 连线的方法为：
+
+mysql -u root -p新密码
+
+或者是这样，让 mysql 询问 root 的密码：
+
+mysql -u root -p
+
+资料库维护
+
+接下来，我们以简单的通讯录资料库作为例子，来介绍如何用 mysql 工具程式来做资料库的维护（新增、授权、资料表维护等）。
+
+首先，以 MySQL root 帐号连线后建立一 addbook 资料库：
+
+# /usr/local/mysql/bin/mysql -u root -p
+
+Enter password:
+
+Welcome to the MySQL monitor. Commands end with ; or \g.
+
+Your MySQL connection id is 207 to server version: 3.22.27
+
+Type 'help' for help.
+
+mysql> create databae addbook;
+
+Query OK, 1 row affected (0.00 sec)
+
+指定使用 addbook 资料库，并建立一个 friends 资料表：
+
+mysql> use addbook;
+
+Database changed
+
+mysql> create table friends (
+
+　　-> name Char(15),
+
+　　-> telphone VarChar(20),
+
+　　-> icq Char(10),
+
+　　-> address VarChar(30)
+
+　　-> );
+
+Query OK, 0 rows affected (0.00 sec)
+
+新增几笔资料，并查询看看：
+
+mysql> insert into friends values(
+
+　　-> "maa", "29016710", "46243046", "台北县新庄市"
+
+　　-> );
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into friends (name, icq, telphone, address ) Values (
+
+　　-> "cxlin", "39425893", "7654321", "台北县"
+
+　　-> );
+
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from friends;
+
+---------------------------------+
+
+| name | telphone | icq | address |
+
+---------------------------------+
+
+| maa | 29016710 | 46243046 | 台北县新庄市 |
+
+| cxlin | 7654321 | 39425893 | 台北县 |
+
+---------------------------------+
+
+2 rows in set (0.00 sec)
+
+第二个 insert 指令指定了资料栏位的插入顺序，用法较第一个为弹性，而第一个指令必须依资料表建立结构时的顺序插入资料。更新、删除资料表记录：
+
+mysql> update friends set address = "桃园县" where name = "cxlin";
+
+Query OK, 1 row affected (0.00 sec)
+
+Rows matched: 1 Changed: 1 Warnings: 0
+
+mysql> select * from friends where name = "cxlin";
+
+----------------------------+
+
+| name | telphone | icq | address |
+
+----------------------------+
+
+| cxlin | 7654321 | 39425893 | 桃园县 |
+
+----------------------------+
+
+1 row in set (0.00 sec)
+
+mysql> delete from friends where name = "maa";
+
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from friends;
+
+----------------------------+
+
+| name | telphone | icq | address |
+
+----------------------------+
+
+| cxlin | 7654321 | 39425893 | 桃园县 |
+
+----------------------------+
+
+1 row in set (0.00 sec)
+
+最后，建好资料库与资料表后，把 addbook 资料库中所有资料表的使用权限（select、insert、update、delete）授权给 maa@localhost（再次提醒，此处的 maa 为 MySQL 的使用者帐号，而非作业系统的 maa 帐号）：
+
+mysql> grant select, insert, update, delete
+
+-> on addbook.*
+
+-> to maa@localhost identified by '1234567';
+
+Query OK, 0 rows affected (0.00 sec)
+
+之后，可用 maa 的身份进入 MySQL 存取 addbook 资料库：
+
+# /usr/local/mysql/bin/mysql -u maa -p addbook
+
+Enter password:
+
+Reading table information for completion of table and column names
+
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor. Commands end with ; or \g.
+
+Your MySQL connection id is 211 to server version: 3.22.27
+
+Type 'help' for help.
+
+mysql> status
+
+--------------
+
+./mysql Ver 9.36 Distrib 3.22.27, for pc-linux-gnu (i686)
+
+Connection id: 26
+
+Current database: addbook
+
+Current user: maa@localhost
+
+Server version 3.22.27
+
+Protocol version 10
+
+Connection Localhost via UNIX socket
+
+UNIX socket /tmp/mysql.sock
+
+Uptime: 2 hours 29 min 33 sec
+
+Threads: 11 Questions: 107 Slow queries: 0 Opens: 11 Flush tables: 1
+
+Open 7
+
+--------------
+
+收回资料库使用权限的方法如下（以 MySQL root 进入）：
+
+mysql> revoke delete on addbook.* from maa@localhost;
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> revoke all privileges on addbook.* from maa@localhost;
+
+Query OK, 0 rows affected (0.00 sec)
+
+第二个指令用来收回全部的权限。
+
+
+    五、mysqladmin 公用程式的使用
+
+mysqladmin 公用程式可用来维护 MySQL 比较一般性的工作（新增、删除资料库、设定使用者密码及停止 MySQL 等等），详细的说明可以使用 mysqladmin --help 来查看。（以本文的安装为例 mysqladmin 位於 /usr/local/mysql/bin/mysqladmin）。
+
+新增资料库 dbtest
+
+# /usr/local/mysql/bin/mysqladmin -u root -p create dbtest
+
+Enter password:
+
+Database "dbtest" created.
+
+删除资料库
+
+# /usr/local/mysql/bin/mysqladmin -u root -p drop dbtest
+
+Enter password:
+
+Dropping the database is potentially a very bad thing to do.
+
+Any data stored in the database will be destroyed.
+
+Do you really want to drop the 'dbtest' database [y/N]
+
+y
+
+Database "dbtest" dropped
+
+设定使用者密码（将 maa 的密码改为 7654321，mysqladmin 会先询问 maa 的原密码）
+
+# /usr/local/mysql/bin/mysqladmin -u maa -p password 7654321
+
+Enter password:
+
+#
+
+停止 MySQL 服务
+
+# ./mysqladmin -u root -p shutdown
+
+Enter password:
+
+注意，shutdown MySQL 后，必须由作业系统的 root 帐号执行下列指令才能启动 MySQL：
+
+/usr/local/mysql/share/mysql/mysql.server start
+
+六、结语：
+
+MySQL 资料库的确是值得推广的一个产品，它的稳定性已经稳得大家的赞同，只要你曾经学习过SQL Language（结构化查询语言），相信要摸熟 MySQL 的使用只消一两个小时的时间。如果搭配PHP （Personal HomePage Program）和 Apache Web Server，更可很轻松建构一个与资料库结合的动态 Web Site。如果再配合 phpMyAdmin 这个 Web 化的 MySQL 管理工具，建立 MySQL 的资料库和 MySQL 的管理将会更加方便。
