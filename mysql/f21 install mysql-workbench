@@ -1,0 +1,1 @@
+sudo yum localinstall mysql-workbench-community-6.2.5-1.fc21.x86_64.rpm
