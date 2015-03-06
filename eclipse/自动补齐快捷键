@@ -1,0 +1,5 @@
+1.选择Eclipse菜单栏中的Window->preferences； 
+2.选择General->keys; 
+3.在右侧中间的窗体中点击word completion后再点击remove binding,在下方的binding中随便（例如"Alt+."）输入一个快捷键； 
+4.然后选择Content Assist点击Remove binding，在binding中输入Alt+/； 
+5.点击Ok就可以了。
