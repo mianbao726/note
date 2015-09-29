@@ -1,0 +1,15 @@
+Suspend trouble with lid close on Gnome
+
+Code:
+su -
+cd /etc/systemd/
+gedit logind.conf
+
+From here, uncomment the line "HandleLidSwitch=suspend", then change "suspend" to "lock".
+
+I also uncommented the line "LidSwitchIgnoreInhibited=yes", but I don't think it's actually necessary because that is already the default behavior.
+
+It worked as expected on my next boot (didn't try it right after, but I don't suppose it won't work). It doesn't suspend, screen just locks and blanks.
+
+
+sudo systemctl restart systemd-logind
