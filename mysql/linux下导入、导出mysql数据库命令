@@ -5,7 +5,6 @@ mysqldump -u用户名 -p密码 数据库名 > 数据库名.sql
 敲回车后会提示输入密码
 
 
-haha
 
 2、只导出表结构
 mysqldump -u用户名 -p密码 -d 数据库名 > 数据库名.sql
