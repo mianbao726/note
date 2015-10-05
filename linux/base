@@ -10,8 +10,8 @@ sudo systemctl stop firewalld.service
 yum localinstall google-chrome-stable_current_x86_64.rpm
 
 添加快捷方式
-cd /usr/share/applications/
-sudo vi php-strom.desktop
+sudo vi  /usr/share/applications/php-strom.desktop
+
 [Desktop Entry]
 Type=Application
 Name=Eclipse
