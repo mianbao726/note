@@ -1,1 +1,43 @@
 1.安装python
+	tar -zxvf Python-3.5.1.tgz
+	./configure
+	make
+	make install
+	 
+	cd /usr/bin
+	ll |grep python
+	rm -rf python
+	ln -s /home/python/Python-x.x.x/python python
+	python
+	
+2.解释器
+	CPython是使用最广的Python解释器
+
+3.hello world
+	>>> 100+200
+	>>> print("hello")
+	>>> exit()
+	
+4.用文本编辑py
+	如果需要可执行  需要在前面添加  #!/usr/bin/env python3
+	print("hello world","sunny"); 逗号会输出空格
+	
+5.输入
+	name = input("input hint ... ...");
+	
+6. \  转义字符  
+
+7.变量
+	整数、浮点(12.2e10)、字符串、布尔（True、False） 逻辑运算(and or not)  空值(None)
+	弱类型语言
+	除法
+		>>> 10/3
+		3.3333333333333335
+		>>> 10//3
+		3
+		>>> 10%3
+		1
+		>>>
+		
+		
+TODO  字符串和编码
