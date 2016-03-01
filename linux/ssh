@@ -31,4 +31,12 @@
 	
 	ssh ask
 	
+4.Bad owner or permissions on $HOME/.ssh/config
+
+$ cd ~/.ssh
+$ chmod 600 *
+
+
+	
+	
 	
