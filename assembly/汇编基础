@@ -1,3 +1,10 @@
 1.总线：连接cpu和其他芯片（内存、网卡内存等）的导线
 	逻辑划分为 地址、数据、控制总线
 2.  1byte = 8bit
+3.BIOS  basic input output system
+    rom 只读  ram 随机 
+4.寄存器 ax bx cx dx si di sp bp ip cs ss ds es psw
+  所有寄存器都是16位bit 两个字节byte  一个字word
+  ax bx cx dx通用寄存器
+  ax 可以分为 AH AL 高低
+TODO  008 寄存器
