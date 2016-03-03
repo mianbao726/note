@@ -7,4 +7,18 @@
   所有寄存器都是16位bit 两个字节byte  一个字word
   ax bx cx dx通用寄存器
   ax 可以分为 AH AL 高低
-TODO  008 寄存器
+5.物理寻址
+	段地址*16 + 偏移地址
+6.cs ds ss es
+	代码 数据 堆栈 额外
+7.cs ip
+	cs 代码段寄存器
+	ip 指令指针寄存器
+	修改cs ip 
+		 jmp 2033:10
+		 jmp FFFF:23EE
+	修改ip  (仅jmp 寄存器)
+		jmp ax
+	
+
+
