@@ -37,9 +37,18 @@
 	  mov al,[0]
 	寄存器数据写入内存
 	  mov ax,1000H
-	  mov ds,ax
+	  mov ds,ax 
 	  mov [0],al
 	  
-todo 15
+10.栈
+	先进后出
+	push 入栈  sp=sp-2
+	pop  出栈  sp=sp+2
+	
+	段寄存器 ss 存放栈顶的段地址
+	寄存器   sp 存放栈顶的便宜地址
+	ss:sp  z指向栈顶元素
+	
+todo 17
   
 
