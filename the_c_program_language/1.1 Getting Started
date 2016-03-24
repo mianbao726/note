@@ -101,5 +101,22 @@ The only way to learn a new programming language is by writing programs in it
 		
 		Notice that there is no semicolon at the end of a #define line.
 		
-1.5 TODO Character Input and Output
+1.5 Character Input and Output
+
+	int c = getchar()  and  putchar(c)
+	
+	#include <stdio.h>
+	/* copy input to output; 2nd version
+	main()
+	{
+	int c;
+	*/
+	while ((c = getchar()) != EOF)
+	putchar(c);
+	}
+	
+
+TODO  1.5.2 Character Counting
+		
+		
 		
