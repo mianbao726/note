@@ -49,6 +49,16 @@
 	寄存器   sp 存放栈顶的便宜地址
 	ss:sp  z指向栈顶元素
 	
+	
+	使用方法
+		push pop   (寄存器）  ax
+		push pop   (段寄存器) ds es  段寄存器通常已s结尾
+		push pop   (内存单元) [0] [2]  以字为单位  值是ds[0] 或 ds[2] ds[偏移地址]
+	
+	数据 ds	
+	代码 cs  
+	栈   ss
+	
 todo 17
   
 
