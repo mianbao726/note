@@ -1,0 +1,22 @@
+1.运行方式
+	本地 
+	远程 
+		内嵌jetty carte  ip port  （cat localhost 9090）  
+		配置slave server 后运行时候配置远程运行
+	集群 (cluster)
+		配置kettle cluster schemas
+		
+2.开发模式 
+	图形界面  spoon 
+	命令      pan(transformation)   kitchen(job)
+			./kitchen.sh /rep:pentaho_mysql_localhost /user:admin /pass:admin /job:job001  /dir:/
+	java
+	
+3.图形界面
+	table input  可以配合get system info 来配置参数
+	
+	同步数据库 
+		同步数据 insert/update     Synchronize after merge  ? 区别是什么？ （4.2）
+		bulk loader  流形式  速度更快 （4.2）
+	
+	
