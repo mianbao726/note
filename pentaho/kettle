@@ -18,5 +18,9 @@
 	同步数据库 
 		同步数据 insert/update     Synchronize after merge  ? 区别是什么？ （4.2）
 		bulk loader  流形式  速度更快 （4.2）
+	报表 4.3
+	正则表达式 替换 5
+	
+	行列转换
 	
 	
