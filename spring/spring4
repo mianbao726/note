@@ -1,4 +1,5 @@
 1.spEL  9
 2.关闭容器    设置初始化方法 和 销毁方法  bean 前后置 处理器（BeanPostProcessor）  10
-
+3.工厂方法 获取bean 11
+4.自定义 factory bean  impliment FactoryBean  返回的 是getObject 方法返回的实例
 todo  8
