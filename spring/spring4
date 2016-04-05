@@ -1,1 +1,4 @@
-1.todo  8
+1.spEL  9
+2.关闭容器    设置初始化方法 和 销毁方法  bean 前后置 处理器（BeanPostProcessor）  10
+
+todo  8
