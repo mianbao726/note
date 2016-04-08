@@ -13,6 +13,13 @@
 10.多个切面 顺序问题 @order
 11.切入点表达式  @Pointcut("execution(public int spring.Cal.*())") @Before("spring.AspectLogging.declareJoinPoint()")
 12. aop xml 配置 22
-13.
-
+13.事物 26
+   事物的传播行为 27   propagation = Propagation.REQUIRES_NEW
+   隔离级别      28
+   回滚 只读 过期
+   
+   事物 xml配置29
+14.
+   
+   
 todo  24
