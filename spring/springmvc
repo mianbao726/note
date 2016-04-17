@@ -7,5 +7,41 @@
 6.基本CRUD 30
 7.spring mvc 校验 34
 8.转换 35
+9.  annotation-driven
+	1）静态资源
+	2）自定义conversionservice  自定义转换bean
+	
+10.ajax json  @ResponseBody @RequestBody   41
+	HttpMessageConverter<T>
+		HttpInputMessageConverter
+		HttpOutputMessageConverter
+		
+11.文件上传、下载 43
 
-36
+12.i18n 46
+
+13.文件上传    MultipartResover 47
+
+14.拦截器
+	xxx impliments HandlerInterceptor
+	
+	xml
+	<mvc:interceptors>
+		<bean class = "xxx"/>
+	</mvc:interceptors>   48
+	
+	拦截器 选择   作用于哪些  ，不作用于哪些 49
+	
+	拦截器顺序   按照配置顺序执行  50
+	
+15.异常   51
+
+	当前handler
+	@ExceptionHandler({Exception.class})
+	返回类型  ModelAndView
+	
+	异常类
+	@ControllerAdvice  修饰类
+	
+	
+51
