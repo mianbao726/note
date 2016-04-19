@@ -44,4 +44,11 @@
 	@ControllerAdvice  修饰类
 	
 	
-51
+	自定义异常 @ResponseStatusExceptionResolver  52
+	DefaultHandlerExceptionResolver  53
+	SimpleMappingExceptionResolver  54
+	
+16.springmvc运行流程	
+
+	
+51 
