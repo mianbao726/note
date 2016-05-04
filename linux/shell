@@ -7,3 +7,72 @@
 	echo "what's you name ?"
 	read USERNAME
 	echo "hello, $USERNAME"
+	
+3.使用变量
+	#!/bin/bash
+	username="sunny"
+	echo ${username}
+	echo $username
+	
+4.循环
+	#!/bin/bash
+	for skill in aa bb cc dd
+	do
+	    echo "I'm good at $skill"
+	done
+	
+5.只读变量
+	#!/bin/bash
+	url="ssbb"
+	readonly url
+	url="abc"
+		
+6.删除变量
+	#!/bin/bash
+	url="ssbb"
+	echo $url
+	unset url
+	echo $url
+		
+7.当前脚本pid
+	#!/bin/bash
+	echo $$
+	
+8.特殊变量
+	#!/bin/bash
+	echo $$   #当前pid
+	echo $0   #文件名
+	echo $2   #第二个参数
+	echo $#   #参数个数
+	echo $*   #全部参数
+	echo $@   #全部参数TODO
+	echo $?   #返回值
+	echo "---------------------------"
+	echo "\$*=" $*
+	echo "\"\$*\"=" "$*"
+	echo "\$@=" $@
+	echo "\"\$@\"=" "$@"
+	for var in $*
+	do
+	  echo "$var"
+	done
+	
+	for var in $@
+	do
+	  echo "$var"
+	done
+	
+	for var in "$*"
+	do
+	  echo "$var"
+	done
+	
+	for var in "$@"
+	do
+	  echo "$var"
+	done
+	echo $?
+		
+
+
+
