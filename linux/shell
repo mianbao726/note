@@ -1,0 +1,9 @@
+1.hello world
+	#!/bin/bash
+	echo "hello world"
+	
+2.read input 
+	#!/bin/bash
+	echo "what's you name ?"
+	read USERNAME
+	echo "hello, $USERNAME"
