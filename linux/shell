@@ -268,4 +268,63 @@
 	  echo "$count"
 	done
 
-24.
+24.break continue
+	#!/bin/bash
+	for var1 in 1 2 3
+	do
+	  for var2 in 0 5
+	  do
+	    if [ $var1 -eq 2 -a $var2 -eq 0 ]
+	    then
+	      break 2
+	    else
+	      echo "$var1 $var2"
+	    fi
+	  done
+	done
+	
+	while :
+	do
+	  echo -n "input a new number 1-5:"
+	  read aNum
+	  case $aNum in
+	  1|2|3|4|5) echo "input ... ... $aNum"
+	  ;;
+	  *) echo "not 1-5"
+	  continue
+	  echo "game is over"
+	  ;;
+	  esac
+	done
+
+25.函数
+	#!/bin/bash
+	function hello(){
+	  echo "url is www.askpure.com"
+	  return 99
+	}
+	
+	hello
+	ret=$?
+	echo "ret is $ret"
+	
+	unset .f hello  #unset函数
+	
+26.参数函数
+	#!/bin/bash
+	function hello(){
+	  echo "  first is $1"
+	  echo "  first is $2"
+	  echo "  first is ${11}"
+	  echo "  first is $#"
+	  echo "  first is $*"
+	
+	  echo "url is www.askpure.com"
+	  return 99
+	}
+	
+	hello 1 2 3 4 5 6
+	ret=$?
+	echo "ret value is $ret"
+
+27.
