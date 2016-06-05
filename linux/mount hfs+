@@ -1,0 +1,2 @@
+mount -t hfsplus -o force,rw /dev/sdc2 /mnt/Time
+umount /mnt/Time
