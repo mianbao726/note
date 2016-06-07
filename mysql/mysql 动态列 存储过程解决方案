@@ -1,0 +1,15 @@
+CREATE DEFINER=`arjr`@`%` PROCEDURE `testing`(
+                           # IN day_Count int,#当月天数
+                           # IN firstDay varchar(10)#当月初始日期
+						   IN user_id varchar(10)
+                           )
+BEGIN
+
+SET @ZKBR='';
+SELECT @ZKBR:=CONCAT(@ZKBR,'SUM(IF(cid=\'',cid,'\'',',val,0)) AS col',cid,',') FROM 
+(SELECT DISTINCT cid FROM task where uid = user_id) A;
+-- SET @QQ=CONCAT('SELECT ifnull(sid,\'total\'),',LEFT(@ZKBR,LENGTH(@ZKBR)-1),' ,SUM(val) AS TOTAL FROM task GROUP BY sid WITH ROLLUP');
+SET @QQ=CONCAT('SELECT sid,',LEFT(@ZKBR,LENGTH(@ZKBR)-1),'  FROM task GROUP BY sid ');
+PREPARE stmt2 FROM @QQ;
+EXECUTE stmt2;
+END
