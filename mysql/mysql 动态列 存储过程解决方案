@@ -6,8 +6,21 @@ CREATE DEFINER=`arjr`@`%` PROCEDURE `testing`(
 BEGIN
 
 SET @ZKBR='';
-SELECT @ZKBR:=CONCAT(@ZKBR,'SUM(IF(cid=\'',cid,'\'',',val,0)) AS col',cid,',') FROM 
-(SELECT DISTINCT cid FROM task where uid = user_id) A;
+SELECT 
+    @ZKBR:=CONCAT(@ZKBR,
+            'SUM(IF(cid=\'',
+            cid,
+            '\'',
+            ',val,0)) AS col',
+            cid,
+            ',')
+FROM
+    (SELECT DISTINCT
+        cid
+    FROM
+        task
+    WHERE
+        uid = user_id) A;
 -- SET @QQ=CONCAT('SELECT ifnull(sid,\'total\'),',LEFT(@ZKBR,LENGTH(@ZKBR)-1),' ,SUM(val) AS TOTAL FROM task GROUP BY sid WITH ROLLUP');
 SET @QQ=CONCAT('SELECT sid,',LEFT(@ZKBR,LENGTH(@ZKBR)-1),'  FROM task GROUP BY sid ');
 PREPARE stmt2 FROM @QQ;
