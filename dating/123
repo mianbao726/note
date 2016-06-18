@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="tj">
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="R0dIUFVBaVZzamU2Eg8MYjZ3Mj4YAipjJiwpFx0JBxgxHyFnAhsFGA==">
+    <!--<title></title>-->
+    <link href="/assets/38705ccb/css/strength-meter.css" rel="stylesheet">
+<link href="/themes/slate/css/site.css" rel="stylesheet">
+<script type="text/javascript">var strength_00000000 = {};
+</script>    <title>问渠网-分享你我的IT技术知识,优秀的实战教程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="OperatingSystem,c,c++,linux,教程,软件,编程,云计算,网络,互联网,跟我一起写操作系统,C语言深处,一点一滴学Linux"/>
+    <meta name="description" content="问渠,问渠网,爱阳光、爱分享、爱成长，原创精品教程"/>
+    <meta name="author" content="李德强,朱文件">
+
+    <meta property="og:type" content="article"/>
+    <!--<meta property="og:url" content="" />-->
+    <meta property="og:title" content="跟我一起写操作系统"/>
+    <meta property="og:description" content="跟我一起写操作系统,C语言深处,一点一滴学Linux,原创精品教程"/>
+    <meta charset="UTF-8">
+
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../backend/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../backend/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../backend/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../backend/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../backend/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../backend/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../images/logo_icon.png">
+    <meta name="baidu-site-verification" content="aDYLoorJLW"/>
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            text-shadow: 0px 0px 0 rgba(0,0,0,.3);
+        }
+    </style>
+
+    <!-- CSS Bootstrap & Custom -->
+    <link rel="stylesheet" href="../backend/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../backend/css/templatemo-misc.css">
+    <link rel="stylesheet" href="../backend/css/animate.css">
+    <link rel="stylesheet" href="../backend/css/templatemo-main.css">
+
+    <link rel="stylesheet" href="../backend/css/accordian-style.css">
+    <link rel="stylesheet" href="../backend/css/3d-thumbnail/3d-thumbnail-image.css">
+
+
+
+</head>
+<body>
+<div id="home" class = "wrap">
+    <div class="site-header">
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-md-6 col-sm-6">
+                        <div class="left-header text-left">
+                            <ul class="social-icons" style="font-size: x-large"><a href="http://www.askpure.com" title="Dreri"><label style="color: white">问渠网</label></a></ul>
+                        </div>
+                        <!-- /.left-header -->
+                    </div>
+                    <!-- /.col-md-6 -->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="right-header text-right">
+
+                            <ul class="social-icons">
+
+                                <!--                                -->                            </ul>
+                        </div>
+                        <!-- /.left-header -->
+                    </div>
+                    <!-- /.col-md-6 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.top-header -->
+        <div class="main-header" style="display: none; padding-top: 2px;padding-bottom: 8px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="logo">
+                            <a href="http://www.askpure.com" title="Dreri"><img src="../images/home_logo.png"
+                                                                                style="height: 50px;padding-top: -50px"></a>
+                        </div>
+                        <!-- /.logo -->
+                    </div>
+                    <!-- /.col-md-4 -->
+                    <div class="col-md-8 col-sm-8 col-xs-6" style="padding-top: 10px">
+                        <div class="menu text-right hidden-sm hidden-xs">
+                            <ul>
+                                <li><a href="#home">主页</a></li>
+                                <li><a href="#about">本站教程</a></li>
+                                <li><a href="#portfolio">近期更新</a></li>
+
+                                <li><a href="#contact">赞助我们</a></li>
+
+                                <li><a href="/site/login.html">注册/登录</a></li>                            </ul>
+                        </div>
+                        <!-- /.menu -->
+                    </div>
+                    <!-- /.col-md-8 -->
+                </div>
+                <!-- /.row -->
+                <div class="responsive-menu text-right visible-xs visible-sm" style="padding-top: -20px">
+                    <a href="#" class="toggle-menu fa fa-bars"></a>
+
+                    <div class="menu">
+                        <ul>
+                            <li><a href="#home">主页</a></li>
+                            <li><a href="#about">本站教程</a></li>
+                            <li><a href="#portfolio">近期更新</a></li>
+
+                            <li><a href="#contact">赞助我们</a></li>
+
+
+                            <li><a href="/site/login.html">注册/登录</a></li>                        </ul>
+                    </div>
+                    <!-- /.menu -->
+                </div>
+                <!-- /.responsive-menu -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- Main Wrapper -->
+        <div class="container" style="padding-top: 20px">
+                                    <!-- Bootstrap Core CSS -->
+<div class="site-signup">
+
+    <h1></h1>
+
+    <div class="col-lg-5 well bs-component" style ="margin-top: 20px">
+
+        <p>请填写以下完成注册</p>
+
+        <form id="form-signup" action="/site/signup.html" method="post" role="form">
+<input type="hidden" name="_csrf" value="R0dIUFVBaVZzamU2Eg8MYjZ3Mj4YAipjJiwpFx0JBxgxHyFnAhsFGA==">
+            <div class="form-group field-signupform-username required">
+<label class="control-label" for="signupform-username">用户名</label>
+<input type="text" id="signupform-username" class="form-control" name="SignupForm[username]">
+
+<p class="help-block help-block-error"></p>
+</div>            <div class="form-group field-signupform-email required">
+<label class="control-label" for="signupform-email">邮箱</label>
+<input type="text" id="signupform-email" class="form-control" name="SignupForm[email]">
+
+<p class="help-block help-block-error"></p>
+</div>            <div class="form-group field-signupform-password required">
+<label class="control-label" for="signupform-password">密码</label>
+<input type="password" id="signupform-password" name="SignupForm[password]">
+
+<p class="help-block help-block-error"></p>
+</div>
+            <div class="form-group field-signupform-agree">
+<div class="checkbox">
+<label checked="checked" style="padding:5px;color:#777777" for="signupform-agree">
+<input type="hidden" name="SignupForm[agree]" value="0"><input type="checkbox" id="signupform-agree" name="SignupForm[agree]" value="1" checked>
+同意用户协议
+</label>
+<p class="help-block help-block-error"></p>
+
+</div>
+</div>
+        &nbsp;&nbsp;<a data-toggle="modal" data-target="#myModal" href="#">用户使用协议</a>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" name="signup-button">注册</button>            </div>
+
+        </form>
+                    <div style="color:#666;margin:1em 0">
+                <i>*我们会向您发送带有激活连接的邮件,enjoy!</i>
+                <br/>
+                <i>*您使用的邮件系统可能会误认为这是一封垃圾邮件。如果您没有收到激活邮件，请到邮箱的垃圾箱中找一找</i>
+            </div>
+        
+    </div>
+
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">用户使用协议</h4>
+                <div class="protocol">
+                    <h2>1. 服务内容</h2>
+                    <p>1.1 用户应遵守中华人民共和国相关法律法规(如果用户是中华人民共和国境外的使用者，应遵守所属国家或地区的法律法规)。用户将自行承担用户所发布的信息内容的责任。特别地，用户不得发布下列内容：</p>
+                    <ul>
+                        <li>反对中华人民共和国宪法所确定的基本原则的；</li>
+                        <li>危害国家统一、主权和领土完整的；</li>
+                        <li>泄露国家秘密，危害国家安全或者损害国家荣誉和利益的；</li>
+                        <li>煽动民族仇恨、民族歧视，破坏民族团结或者侵害民族风俗、习惯的；</li>
+                        <li>破坏国家宗教政策，宣扬邪教、迷信的；</li>
+                        <li>散布谣言，扰乱社会秩序，破坏社会稳定的；</li>
+                        <li>散布淫秽、赌博、暴力或者教唆犯罪的；</li>
+                        <li>侮辱或者诽谤他人，侵害他人合法权益的；</li>
+                        <li>危害社会公德或者民族优秀文化传统的；</li>
+                        <li>宣扬外挂,私服以及木马的相关内容；</li>
+                        <li>刊登任何经本公司合理判断为不妥当或者本公司未认可的软件、文件等在内的主页地址或者链接的行为；</li>
+                        <li>含有中华人民共和国法律、行政法规禁止的其他内容的。</li>
+                    </ul>
+                    <h2>2. 知识产权</h2>
+                    <p><b>2.1 问渠提供的网络服务内容可能包括：文字、软件、声音、图片、录像、图表等。所有这些内容均为问渠或授权问渠使用的合法权利人所有，除非事先经问渠或其权利人的合法授权，任何人皆不得擅自以任何形式使用，否则问渠可立即终止向用户提供产品和服务，并依法追究其法律责任，赔偿问渠一切损失。</b></p>
+                    <p><b>2.2 用户只有在获得问渠或其他相关权利人的授权之后才能使用这些内容，而不能擅自复制、再造这些内容、或创造与内容有关的派生产品。</b></p>
+                    <p><b>2.3 用户原创作品上载、传送、输入或以其他方式提供至问渠网站时，视为用户授予问渠对其作品的使用权，该授权无地域、期限、方式限制，该授权为免费授权，问渠可在现行法律范围内就该作品进行使用，包括但不限于复制、发行、出租、展览、表演、放映、广播、信息网络传播、摄制、改编、翻译、汇编等，并可将前述权利转、分授权给其他第三方。为避免分歧，问渠在此特别说明本条不适用于用户使用WPS OFFICE在线存储服务而上载的任何内容。</b></p>
+                    <h2>3. 隐私保护</h2>
+                    <p>3.1 保护用户隐私是问渠的一项基本政策，问渠保证不对外公开或向第三方提供用户申请资料及用户在使用网络服务时存储在问渠的个人信息，但下列情况除外：</p>
+                    <ul>
+                        <li>事先获得用户的明确授权；</li>
+                        <li>根据有关的法律法规要求；</li>
+                        <li>按照相关政府主管部门的要求；</li>
+                        <li>为维护社会公众的利益；</li>
+                        <li>为维护问渠的合法权益。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modal-body">
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->        </div>
+        <!-- /.header -->
+    </div>
+    <!-- /.site-header -->
+</div>
+<div class="footer" style="background-color: #e3722e;  border-top: 1px solid #e3722e;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <p style="color: white;">Copyright &copy; 2015 问渠网&nbsp;&nbsp;辽ICP备15013245号</p>
+            </div>
+            <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.site-footer -->
+
+<script src="/assets/e659486e/jquery.js"></script>
+<script src="/assets/3f33665e/yii.js"></script>
+<script src="/assets/3f33665e/yii.validation.js"></script>
+<script src="/assets/38705ccb/js/strength-meter.js"></script>
+<script src="/assets/3f33665e/yii.activeForm.js"></script>
+<script type="text/javascript">jQuery(document).ready(function () {
+jQuery('#signupform-password').strength(strength_00000000)
+jQuery('#form-signup').yiiActiveForm([{"id":"signupform-username","name":"username","container":".field-signupform-username","input":"#signupform-username","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, []);yii.validation.required(value, messages, {"message":"请输入用户名"});yii.validation.string(value, messages, {"message":"Username must be a string.","min":6,"tooShort":"用名至少是6位","max":30,"tooLong":"用户名最长位30位","skipOnEmpty":1});}},{"id":"signupform-email","name":"email","container":".field-signupform-email","input":"#signupform-email","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, []);yii.validation.required(value, messages, {"message":"请输入邮箱"});yii.validation.email(value, messages, {"pattern":/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/,"fullPattern":/^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/,"allowName":false,"message":"请输入正确邮箱地址","enableIDN":false,"skipOnEmpty":1});yii.validation.string(value, messages, {"message":"Email must be a string.","max":255,"tooLong":"邮箱最长位255位","skipOnEmpty":1});}},{"id":"signupform-password","name":"password","container":".field-signupform-password","input":"#signupform-password","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"请输入密码"});yii.validation.string(value, messages, {"message":"Password must be a string.","min":6,"tooShort":"密码至少是6位","max":255,"tooLong":"密码最长位255位","skipOnEmpty":1});}},{"id":"signupform-agree","name":"agree","container":".field-signupform-agree","input":"#signupform-agree","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.range(value, messages, {"range":["1"],"not":false,"message":"请阅读并同意用户使用协议","skipOnEmpty":1});}}], []);
+});</script><!-- Bootstrap Core JavaScript -->
+<script src="../backend/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../backend/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="../backend/js/plugins/morris/raphael.min.js"></script>
+<script src="../backend/js/plugins/morris/morris.min.js"></script>
+<script src="../backend/js/plugins/morris/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../backend/js/sb-admin-2.js"></script>
+</body>
+</html>
