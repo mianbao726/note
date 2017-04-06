@@ -1,0 +1,18 @@
+5.flash安装 
+首先取得root权限
+
+su -
+1
+添加源，在终端输入
+
+（32位系统输入如下代码）
+rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-i386-1.0-1.noarch.rpm
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+
+(64位系统输入如下代码)
+rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+
+输入如下命令开始安装flash
+
+dnf install flash-plugin alsa-plugins-pulseaudio libcurl
